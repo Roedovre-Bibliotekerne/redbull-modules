@@ -20,6 +20,44 @@ function redbull_base_imagecache_default_presets() {
       ),
     ),
   );
+  $items['ting_search_carousel'] = array (
+    'presetname' => 'ting_search_carousel',
+    'actions' => 
+    array (
+      0 => 
+      array (
+        'weight' => '0',
+        'module' => 'imagecache',
+        'action' => 'imagecache_scale_and_crop',
+        'data' => 
+        array (
+          'width' => '100px',
+          'height' => '160px',
+        ),
+      ),
+      1 => 
+      array (
+        'weight' => '1',
+        'module' => 'imagecache_canvasactions',
+        'action' => 'canvasactions_definecanvas',
+        'data' => 
+        array (
+          'ecaxt' => 
+          array (
+            'width' => '112',
+            'height' => '140',
+            'xpos' => 'center',
+            'ypos' => 'center',
+          ),
+          'RGB' => 
+          array (
+            'HEX' => '918F91',
+          ),
+          'under' => true,
+        ),
+      ),
+    ),
+  );
   return $items;
 }
 
