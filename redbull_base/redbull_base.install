@@ -1,0 +1,36 @@
+<?php 
+
+/*
+ * installing filters for role "editor"
+ */
+function redbull_base_update_6001(){
+  redbull_base_setup_filters();
+}
+
+
+
+
+
+function redbull_base_setup_filters(){
+  
+ $types = array(
+    'block',
+    'comment',
+    'node',
+  );
+  $rid_format = array(
+    5 => 3
+  );
+  $i = -25;
+  foreach ($rid_format as $rid => $format) {
+    db_query("DELETE FROM {better_formats_defaults} WHERE rid = %d", $rid);
+    foreach ($types as $type) {
+      db_query("INSERT INTO {better_formats_defaults} (rid, type, format, type_weight, weight) VALUES (%d, '%s', %d, %d, %d)", $rid, $type, $format, 1, $i++);
+    }
+  }
+  
+}
+
+
+
+?>
