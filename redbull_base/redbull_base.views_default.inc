@@ -835,30 +835,6 @@ function redbull_base_views_default_views() {
       ),
       'relationship' => 'none',
     ),
-    'tid' => array(
-      'operator' => 'not',
-      'value' => array(
-        '59' => '59',
-      ),
-      'group' => '0',
-      'exposed' => FALSE,
-      'expose' => array(
-        'operator' => FALSE,
-        'label' => '',
-      ),
-      'type' => 'select',
-      'limit' => TRUE,
-      'vid' => '1',
-      'id' => 'tid',
-      'table' => 'term_node',
-      'field' => 'tid',
-      'hierarchy' => 0,
-      'override' => array(
-        'button' => 'Use default',
-      ),
-      'relationship' => 'none',
-      'reduce_duplicates' => 0,
-    ),
   ));
   $handler->override_option('cache', array(
     'type' => 'none',

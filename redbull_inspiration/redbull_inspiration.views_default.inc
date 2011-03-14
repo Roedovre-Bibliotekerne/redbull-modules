@@ -859,23 +859,6 @@ function redbull_inspiration_views_default_views() {
       'field' => 'type',
       'relationship' => 'none',
     ),
-    'promote' => array(
-      'operator' => '=',
-      'value' => '1',
-      'group' => '0',
-      'exposed' => FALSE,
-      'expose' => array(
-        'operator' => FALSE,
-        'label' => '',
-      ),
-      'id' => 'promote',
-      'table' => 'node',
-      'field' => 'promote',
-      'override' => array(
-        'button' => 'Brug standard',
-      ),
-      'relationship' => 'none',
-    ),
     'vid' => array(
       'operator' => 'in',
       'value' => array(
