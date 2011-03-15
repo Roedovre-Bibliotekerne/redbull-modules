@@ -217,7 +217,23 @@ function redbull_base_default_page_manager_handlers() {
     $pane->type = 'views_panes';
     $pane->subtype = 'blog_category_list-panel_pane_1';
     $pane->shown = TRUE;
-    $pane->access = array();
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'php',
+          'settings' => array(
+            'description' => 'do not display if inspiration',
+            'php' => 'foreach($contexts[\'argument_nid_1\']->data->taxonomy as $terms){
+    if(strtolower(taxonomy_vocabulary_load($terms->vid)->name) == \'inspiration\'){
+      return false;
+    }
+  }
+  return true;',
+          ),
+          'not' => FALSE,
+        ),
+      ),
+    );
     $pane->configuration = array();
     $pane->cache = array();
     $pane->style = array(
@@ -236,6 +252,47 @@ function redbull_base_default_page_manager_handlers() {
     $pane->pid = 'new-8';
     $pane->panel = 'right';
     $pane->type = 'views_panes';
+    $pane->subtype = 'blog_inspiration_category_list-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'php',
+          'settings' => array(
+            'description' => '',
+            'php' => 'foreach($contexts[\'argument_nid_1\']->data->taxonomy as $terms){
+    if(strtolower(taxonomy_vocabulary_load($terms->vid)->name) == \'inspiration\'){
+      return true;
+    }
+  }
+  return false;
+  ',
+          ),
+          'not' => FALSE,
+        ),
+      ),
+    );
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+      'style' => 'ding_box',
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'gray-box',
+    );
+    $pane->extras = array();
+    $pane->position = 1;
+    $display->content['new-8'] = $pane;
+    $display->panels['right'][1] = 'new-8';
+    $pane = new stdClass;
+    $pane->pid = 'new-9';
+    $pane->panel = 'right';
+    $pane->type = 'views_panes';
     $pane->subtype = 'article_list-panel_pane_5';
     $pane->shown = TRUE;
     $pane->access = array();
@@ -245,13 +302,16 @@ function redbull_base_default_page_manager_handlers() {
       'style' => 'ding_box',
       'settings' => NULL,
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'gray-box',
+    );
     $pane->extras = array();
-    $pane->position = 1;
-    $display->content['new-8'] = $pane;
-    $display->panels['right'][1] = 'new-8';
+    $pane->position = 2;
+    $display->content['new-9'] = $pane;
+    $display->panels['right'][2] = 'new-9';
     $pane = new stdClass;
-    $pane->pid = 'new-9';
+    $pane->pid = 'new-10';
     $pane->panel = 'right';
     $pane->type = 'block';
     $pane->subtype = 'comment-0';
@@ -268,11 +328,11 @@ function redbull_base_default_page_manager_handlers() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 2;
-    $display->content['new-9'] = $pane;
-    $display->panels['right'][2] = 'new-9';
+    $pane->position = 3;
+    $display->content['new-10'] = $pane;
+    $display->panels['right'][3] = 'new-10';
     $pane = new stdClass;
-    $pane->pid = 'new-10';
+    $pane->pid = 'new-11';
     $pane->panel = 'right';
     $pane->type = 'block';
     $pane->subtype = 'tagadelic-2';
@@ -289,11 +349,11 @@ function redbull_base_default_page_manager_handlers() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 3;
-    $display->content['new-10'] = $pane;
-    $display->panels['right'][3] = 'new-10';
+    $pane->position = 4;
+    $display->content['new-11'] = $pane;
+    $display->panels['right'][4] = 'new-11';
     $pane = new stdClass;
-    $pane->pid = 'new-11';
+    $pane->pid = 'new-12';
     $pane->panel = 'right';
     $pane->type = 'relevant';
     $pane->subtype = 'relevant_campaigns';
@@ -313,12 +373,13 @@ function redbull_base_default_page_manager_handlers() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 4;
-    $display->content['new-11'] = $pane;
-    $display->panels['right'][4] = 'new-11';
+    $pane->position = 5;
+    $display->content['new-12'] = $pane;
+    $display->panels['right'][5] = 'new-12';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
+    
    
   $export['node_view_panel_context_4'] = $handler;
   
