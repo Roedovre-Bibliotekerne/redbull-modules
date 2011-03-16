@@ -6,6 +6,146 @@
 function redbull_inspiration_views_default_views() {
   $views = array();
 
+  // Exported view: blog_inspiration_category_list
+  $view = new view;
+  $view->name = 'blog_inspiration_category_list';
+  $view->description = 'List of blog categories with usage count.';
+  $view->tag = '';
+  $view->view_php = '';
+  $view->base_table = 'term_data';
+  $view->is_cacheable = FALSE;
+  $view->api_version = 2;
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+  $handler = $view->new_display('default', 'Defaults', 'default');
+  $handler->override_option('fields', array(
+    'name' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'strip_tags' => 0,
+        'html' => 0,
+      ),
+      'link_to_taxonomy' => 1,
+      'exclude' => 0,
+      'id' => 'name',
+      'table' => 'term_data',
+      'field' => 'name',
+      'relationship' => 'none',
+    ),
+    'node_count' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'strip_tags' => 0,
+        'html' => 0,
+      ),
+      'set_precision' => FALSE,
+      'precision' => 0,
+      'decimal' => '.',
+      'separator' => '.',
+      'prefix' => '(',
+      'suffix' => ')',
+      'link_to_term' => 0,
+      'exclude' => 0,
+      'id' => 'node_count',
+      'table' => 'term_node_count',
+      'field' => 'node_count',
+      'relationship' => 'none',
+    ),
+  ));
+  $handler->override_option('sorts', array(
+    'weight' => array(
+      'order' => 'ASC',
+      'id' => 'weight',
+      'table' => 'term_data',
+      'field' => 'weight',
+      'relationship' => 'none',
+    ),
+    'name' => array(
+      'order' => 'ASC',
+      'id' => 'name',
+      'table' => 'term_data',
+      'field' => 'name',
+      'relationship' => 'none',
+    ),
+  ));
+  $handler->override_option('filters', array(
+    'vid' => array(
+      'operator' => 'in',
+      'value' => array(
+        '9' => '9',
+      ),
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'vid',
+      'table' => 'term_data',
+      'field' => 'vid',
+      'relationship' => 'none',
+    ),
+  ));
+  $handler->override_option('access', array(
+    'type' => 'none',
+  ));
+  $handler->override_option('cache', array(
+    'type' => 'none',
+  ));
+  $handler->override_option('title', 'Kategorier');
+  $handler->override_option('items_per_page', 0);
+  $handler->override_option('style_plugin', 'list');
+  $handler->override_option('style_options', array(
+    'grouping' => '',
+    'type' => 'ul',
+  ));
+  $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+  $handler->override_option('pane_title', 'Blog category list (with counts)');
+  $handler->override_option('pane_description', '');
+  $handler->override_option('pane_category', array(
+    'name' => 'View panes',
+    'weight' => 0,
+  ));
+  $handler->override_option('allow', array(
+    'use_pager' => 0,
+    'items_per_page' => 0,
+    'offset' => 0,
+    'link_to_view' => 0,
+    'more_link' => 0,
+    'path_override' => 0,
+    'title_override' => 'title_override',
+    'exposed_form' => FALSE,
+    'fields_override' => FALSE,
+  ));
+  $handler->override_option('argument_input', array());
+  $handler->override_option('link_to_view', 0);
+  $handler->override_option('inherit_panels_path', 0);
+
+  $views[$view->name] = $view;
+
   // Exported view: redbull_inspiration_list
   $view = new view;
   $view->name = 'redbull_inspiration_list';
@@ -1518,6 +1658,331 @@ function redbull_inspiration_views_default_views() {
     'fields_override' => FALSE,
   ));
   $handler->override_option('argument_input', array());
+  $handler->override_option('link_to_view', 0);
+  $handler->override_option('inherit_panels_path', 0);
+
+  $views[$view->name] = $view;
+
+  // Exported view: roedovre_taxonomy_term_view
+  $view = new view;
+  $view->name = 'roedovre_taxonomy_term_view';
+  $view->description = 'A clone of the view to emulate Drupal core\'s handling of taxonomy/term; It differs from the standard one by not providing a page';
+  $view->tag = 'roedovre';
+  $view->view_php = '';
+  $view->base_table = 'node';
+  $view->is_cacheable = FALSE;
+  $view->api_version = 2;
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+  $handler = $view->new_display('default', 'Defaults', 'default');
+  $handler->override_option('fields', array(
+    'title' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'link_to_node' => 0,
+      'exclude' => 0,
+      'id' => 'title',
+      'table' => 'node',
+      'field' => 'title',
+      'relationship' => 'none',
+    ),
+    'field_teaser_value' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'link_to_node' => 0,
+      'label_type' => 'none',
+      'format' => 'default',
+      'multiple' => array(
+        'group' => TRUE,
+        'multiple_number' => '',
+        'multiple_from' => '',
+        'multiple_reversed' => FALSE,
+      ),
+      'exclude' => 0,
+      'id' => 'field_teaser_value',
+      'table' => 'node_data_field_teaser',
+      'field' => 'field_teaser_value',
+      'relationship' => 'none',
+      'override' => array(
+        'button' => 'Override',
+      ),
+    ),
+    'view_node' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'text' => 'Læs mere',
+      'exclude' => 0,
+      'id' => 'view_node',
+      'table' => 'node',
+      'field' => 'view_node',
+      'relationship' => 'none',
+    ),
+  ));
+  $handler->override_option('sorts', array(
+    'sticky' => array(
+      'id' => 'sticky',
+      'table' => 'node',
+      'field' => 'sticky',
+      'order' => 'DESC',
+      'relationship' => 'none',
+    ),
+    'created' => array(
+      'id' => 'created',
+      'table' => 'node',
+      'field' => 'created',
+      'order' => 'DESC',
+      'granularity' => 'second',
+      'relationship' => 'none',
+    ),
+  ));
+  $handler->override_option('arguments', array(
+    'term_node_tid_depth' => array(
+      'id' => 'term_node_tid_depth',
+      'table' => 'node',
+      'field' => 'term_node_tid_depth',
+      'default_action' => 'not found',
+      'style_plugin' => 'default_summary',
+      'style_options' => array(
+        'count' => TRUE,
+        'override' => FALSE,
+        'items_per_page' => 25,
+      ),
+      'wildcard' => 'all',
+      'wildcard_substitution' => 'All',
+      'title' => '%1',
+      'default_argument_type' => 'fixed',
+      'default_argument' => '',
+      'validate_type' => 'taxonomy_term',
+      'validate_fail' => 'not found',
+      'depth' => '0',
+      'break_phrase' => 1,
+      'relationship' => 'none',
+      'default_argument_fixed' => '',
+      'default_argument_php' => '',
+      'validate_argument_node_type' => array(
+        'album' => 0,
+        'artist' => 0,
+        'book' => 0,
+        'page' => 0,
+        'story' => 0,
+        'track' => 0,
+      ),
+      'validate_argument_vocabulary' => array(
+        '3' => 0,
+        '4' => 0,
+        '1' => 0,
+        '5' => 0,
+        '2' => 0,
+      ),
+      'validate_argument_type' => 'tids',
+      'validate_argument_php' => '',
+    ),
+    'term_node_tid_depth_modifier' => array(
+      'id' => 'term_node_tid_depth_modifier',
+      'table' => 'node',
+      'field' => 'term_node_tid_depth_modifier',
+      'default_action' => 'ignore',
+      'style_plugin' => 'default_summary',
+      'style_options' => array(
+        'count' => TRUE,
+        'override' => FALSE,
+        'items_per_page' => 25,
+      ),
+      'wildcard' => 'all',
+      'wildcard_substitution' => 'All',
+      'title' => '',
+      'default_argument_type' => 'fixed',
+      'default_argument' => '',
+      'validate_type' => 'none',
+      'validate_fail' => 'not found',
+    ),
+  ));
+  $handler->override_option('filters', array(
+    'status_extra' => array(
+      'id' => 'status_extra',
+      'table' => 'node',
+      'field' => 'status_extra',
+      'operator' => '=',
+      'value' => '',
+      'group' => 0,
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'relationship' => 'none',
+    ),
+  ));
+  $handler->override_option('access', array(
+    'type' => 'none',
+    'role' => array(),
+    'perm' => '',
+  ));
+  $handler->override_option('cache', array(
+    'type' => 'none',
+  ));
+  $handler->override_option('use_pager', '1');
+  $handler->override_option('style_plugin', 'list');
+  $handler->override_option('style_options', array(
+    'type' => 'ul',
+  ));
+  $handler->override_option('row_options', array(
+    'inline' => array(),
+    'separator' => '',
+    'hide_empty' => 0,
+  ));
+  $handler = $view->new_display('feed', 'Core feed', 'feed');
+  $handler->override_option('items_per_page', 15);
+  $handler->override_option('style_plugin', 'rss');
+  $handler->override_option('style_options', array(
+    'mission_description' => FALSE,
+    'description' => '',
+  ));
+  $handler->override_option('row_plugin', 'node_rss');
+  $handler->override_option('row_options', array(
+    'item_length' => 'default',
+  ));
+  $handler->override_option('path', 'taxonomy/term/%/%/feed');
+  $handler->override_option('menu', array(
+    'type' => 'none',
+    'title' => '',
+    'description' => '',
+    'weight' => 0,
+    'name' => 'navigation',
+  ));
+  $handler->override_option('tab_options', array(
+    'type' => 'none',
+    'title' => '',
+    'description' => '',
+    'weight' => 0,
+    'name' => 'navigation',
+  ));
+  $handler->override_option('displays', array(
+    'page' => 'page',
+    'default' => 0,
+  ));
+  $handler->override_option('sitename_title', FALSE);
+  $handler = $view->new_display('feed', 'Views 1 feed', 'feed_1');
+  $handler->override_option('items_per_page', 15);
+  $handler->override_option('style_plugin', 'rss');
+  $handler->override_option('style_options', array(
+    'mission_description' => FALSE,
+    'description' => '',
+  ));
+  $handler->override_option('row_plugin', 'node_rss');
+  $handler->override_option('row_options', array(
+    'item_length' => 'default',
+  ));
+  $handler->override_option('path', 'taxonomy/term/%/feed');
+  $handler->override_option('menu', array(
+    'type' => 'none',
+    'title' => '',
+    'description' => '',
+    'weight' => 0,
+    'name' => 'navigation',
+  ));
+  $handler->override_option('tab_options', array(
+    'type' => 'none',
+    'title' => '',
+    'description' => '',
+    'weight' => 0,
+    'name' => 'navigation',
+  ));
+  $handler->override_option('displays', array());
+  $handler->override_option('sitename_title', FALSE);
+  $handler = $view->new_display('panel_pane', 'Taxonomy term view pane', 'panel_pane_1');
+  $handler->override_option('pane_title', 'Taxonomy term view');
+  $handler->override_option('pane_description', '');
+  $handler->override_option('pane_category', array(
+    'name' => 'View panes',
+    'weight' => 0,
+  ));
+  $handler->override_option('allow', array(
+    'use_pager' => FALSE,
+    'items_per_page' => FALSE,
+    'offset' => FALSE,
+    'link_to_view' => FALSE,
+    'more_link' => FALSE,
+    'path_override' => FALSE,
+    'title_override' => FALSE,
+    'exposed_form' => FALSE,
+    'fields_override' => FALSE,
+  ));
+  $handler->override_option('argument_input', array(
+    'term_node_tid_depth' => array(
+      'type' => 'context',
+      'context' => 'terms.tid',
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Taksonomi: Term ID (med dybde)',
+    ),
+    'term_node_tid_depth_modifier' => array(
+      'type' => 'none',
+      'context' => 'node.uid',
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Taksonomi: Term ID dybdemodifikator',
+    ),
+  ));
   $handler->override_option('link_to_view', 0);
   $handler->override_option('inherit_panels_path', 0);
 
