@@ -26,7 +26,8 @@ function redbull_base_setup_filters(){
     'node',
   );
   $rid_format = array(
-    5 => 3
+    5 => 3,
+    3 => 3,
   );
   $i = -25;
   foreach ($rid_format as $rid => $format) {
