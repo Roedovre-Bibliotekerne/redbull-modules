@@ -6,7 +6,14 @@
 function redbull_base_update_6001(){
   redbull_base_setup_filters();
 }
-
+/*
+ * hook_update_N()
+ * 
+ * updating WYSIWYG 
+ */
+function redbull_base_update_6002(){
+  redbull_base_setup_wysiwyg();
+}
 
 
 
@@ -30,6 +37,23 @@ function redbull_base_setup_filters(){
   }
   
 }
+
+function redbull_base_setup_wysiwyg() {
+  $results = array(); 
+
+  $full_html_options = array('format' => 3,
+                             'editor' => 'tinymce',
+                            // 'settings' => 'a:20:{s:7:"default";i:1;s:11:"user_choose";i:0;s:11:"show_toggle";i:1;s:5:"theme";s:8:"advanced";s:8:"language";s:2:"en";s:7:"buttons";a:6:{s:7:"default";a:9:{s:4:"bold";i:1;s:6:"italic";i:1;s:7:"bullist";i:1;s:7:"numlist";i:1;s:7:"outdent";i:1;s:6:"indent";i:1;s:4:"link";i:1;s:6:"unlink";i:1;s:4:"code";i:1;}s:4:"font";a:1:{s:12:"formatselect";i:1;}s:10:"fullscreen";a:1:{s:10:"fullscreen";i:1;}s:5:"paste";a:1:{s:9:"pasteword";i:1;}s:5:"table";a:1:{s:13:"tablecontrols";i:1;}s:5:"media";a:1:{s:5:"media";i:1;}}s:11:"toolbar_loc";s:3:"top";s:13:"toolbar_align";s:4:"left";s:8:"path_loc";s:6:"bottom";s:8:"resizing";i:1;s:11:"verify_html";i:1;s:12:"preformatted";i:0;s:22:"convert_fonts_to_spans";i:1;s:17:"remove_linebreaks";i:1;s:23:"apply_source_formatting";i:0;s:27:"paste_auto_cleanup_on_paste";i:1;s:13:"block_formats";s:5:"h2,h3";s:11:"css_setting";s:5:"theme";s:8:"css_path";s:0:"";s:11:"css_classes";s:0:"";}',
+                             //'settings' => 'a:20:{s:7:"default";i:1;s:11:"user_choose";i:0;s:11:"show_toggle";i:1;s:5:"theme";s:8:"advanced";s:8:"language";s:2:"en";s:7:"buttons";a:8:{s:7:"default";a:14:{s:4:"bold";i:1;s:6:"italic";i:1;s:11:"justifyleft";i:1;s:13:"justifycenter";i:1;s:12:"justifyright";i:1;s:7:"bullist";i:1;s:7:"numlist";i:1;s:7:"outdent";i:1;s:6:"indent";i:1;s:4:"link";i:1;s:6:"unlink";i:1;s:5:"image";i:1;s:7:"cleanup";i:1;s:4:"code";i:1;}s:8:"advimage";a:1:{s:8:"advimage";i:1;}s:4:"font";a:1:{s:12:"formatselect";i:1;}s:10:"fullscreen";a:1:{s:10:"fullscreen";i:1;}s:5:"paste";a:1:{s:9:"pasteword";i:1;}s:5:"style";a:1:{s:10:"styleprops";i:1;}s:5:"table";a:1:{s:13:"tablecontrols";i:1;}s:5:"media";a:1:{s:5:"media";i:1;}}s:11:"toolbar_loc";s:3:"top";s:13:"toolbar_align";s:4:"left";s:8:"path_loc";s:6:"bottom";s:8:"resizing";i:1;s:11:"verify_html";i:1;s:12:"preformatted";i:0;s:22:"convert_fonts_to_spans";i:1;s:17:"remove_linebreaks";i:1;s:23:"apply_source_formatting";i:0;s:27:"paste_auto_cleanup_on_paste";i:1;s:13:"block_formats";s:5:"h2,h3";s:11:"css_setting";s:5:"theme";s:8:"css_path";s:0:"";s:11:"css_classes";s:0:"";}'
+                             'settings' => 'a:20:{s:7:"default";i:1;s:11:"user_choose";i:0;s:11:"show_toggle";i:1;s:5:"theme";s:8:"advanced";s:8:"language";s:2:"en";s:7:"buttons";a:4:{s:7:"default";a:15:{s:4:"bold";i:1;s:6:"italic";i:1;s:11:"justifyleft";i:1;s:13:"justifycenter";i:1;s:12:"justifyright";i:1;s:7:"bullist";i:1;s:7:"numlist";i:1;s:7:"outdent";i:1;s:6:"indent";i:1;s:4:"undo";i:1;s:4:"redo";i:1;s:4:"link";i:1;s:6:"unlink";i:1;s:5:"image";i:1;s:4:"code";i:1;}s:4:"font";a:1:{s:12:"formatselect";i:1;}s:5:"table";a:1:{s:13:"tablecontrols";i:1;}s:5:"media";a:1:{s:5:"media";i:1;}}s:11:"toolbar_loc";s:3:"top";s:13:"toolbar_align";s:4:"left";s:8:"path_loc";s:6:"bottom";s:8:"resizing";i:1;s:11:"verify_html";i:1;s:12:"preformatted";i:0;s:22:"convert_fonts_to_spans";i:1;s:17:"remove_linebreaks";i:1;s:23:"apply_source_formatting";i:0;s:27:"paste_auto_cleanup_on_paste";i:1;s:13:"block_formats";s:30:"p,h1,h2,h3,h4,h5,h6,blockquote";s:11:"css_setting";s:5:"theme";s:8:"css_path";s:0:"";s:11:"css_classes";s:0:"";}'
+                             
+                            );            
+  //use db_query instead of update_sql to retain {} in serialized settings array. This would otherwise be stripped.
+  call_user_func_array('db_query', array_merge(array('REPLACE INTO {wysiwyg} SET format = %d, editor = "%s", settings = "%s"'), $full_html_options));
+  
+  return $results;
+}
+
 
 
 
