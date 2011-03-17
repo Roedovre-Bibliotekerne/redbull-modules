@@ -14,7 +14,14 @@ function redbull_base_update_6001(){
 function redbull_base_update_6002(){
   redbull_base_setup_wysiwyg();
 }
-
+/*
+ * hook_update_N()
+ * 
+ * updating WYSIWYG 
+ */
+function redbull_base_update_6102(){
+  redbull_base_setup_filters();
+}
 
 
 
