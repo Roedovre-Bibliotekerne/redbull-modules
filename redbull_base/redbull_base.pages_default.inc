@@ -194,7 +194,21 @@ function redbull_base_default_page_manager_handlers() {
     $pane->type = 'content_field';
     $pane->subtype = 'field_ting_refs';
     $pane->shown = TRUE;
-    $pane->access = array();
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'php',
+          'settings' => array(
+            'description' => 'if any references',
+            'php' => 'if($contexts[\'argument_nid_1\']->data->field_ting_refs[0][\'ting_object_id\']){
+  return true;
+  }
+  return false;',
+          ),
+          'not' => FALSE,
+        ),
+      ),
+    );
     $pane->configuration = array(
       'label' => 'normal',
       'formatter' => 'default',
@@ -224,11 +238,11 @@ function redbull_base_default_page_manager_handlers() {
           'settings' => array(
             'description' => 'do not display if inspiration',
             'php' => 'foreach($contexts[\'argument_nid_1\']->data->taxonomy as $terms){
-    if(strtolower(taxonomy_vocabulary_load($terms->vid)->name) == \'inspiration\'){
-      return false;
+      if(strtolower(taxonomy_vocabulary_load($terms->vid)->name) == \'inspiration\'){
+        return false;
+      }
     }
-  }
-  return true;',
+    return true;',
           ),
           'not' => FALSE,
         ),
@@ -261,12 +275,12 @@ function redbull_base_default_page_manager_handlers() {
           'settings' => array(
             'description' => '',
             'php' => 'foreach($contexts[\'argument_nid_1\']->data->taxonomy as $terms){
-    if(strtolower(taxonomy_vocabulary_load($terms->vid)->name) == \'inspiration\'){
-      return true;
+      if(strtolower(taxonomy_vocabulary_load($terms->vid)->name) == \'inspiration\'){
+        return true;
+      }
     }
-  }
-  return false;
-  ',
+    return false;
+    ',
           ),
           'not' => FALSE,
         ),
@@ -379,6 +393,7 @@ function redbull_base_default_page_manager_handlers() {
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
+    
 
   $export['node_view_panel_context_4'] = $handler;
 
