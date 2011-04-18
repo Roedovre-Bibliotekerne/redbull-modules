@@ -34,7 +34,7 @@
       <?php if ($collection->abstract) : ?>
       <div class="abstract">
         <p>
-          <?php print check_plain($collection->abstract); ?>
+        <?php print truncate_utf8(check_plain($collection->abstract),50,true,true); ?>
         </p>
         
       </div>
