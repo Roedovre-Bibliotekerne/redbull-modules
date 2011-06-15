@@ -5,7 +5,7 @@
  */
 function redbull_base_default_page_manager_handlers() {
   $export = array();
- 
+
   $handler = new stdClass;
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
@@ -393,7 +393,7 @@ function redbull_base_default_page_manager_handlers() {
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
-    
+
 
   $export['node_view_panel_context_4'] = $handler;
 
@@ -498,7 +498,7 @@ function redbull_base_default_page_manager_handlers() {
   $handler->conf['display'] = $display;
 
   $export['page_library_list_panel_context'] = $handler;
-    
+
   $handler = new stdClass;
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
@@ -640,9 +640,9 @@ function redbull_base_default_page_manager_handlers() {
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
-    
+
   $export['node_view_panel_context_3'] = $handler;
-   
+
   $handler = new stdClass;
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
@@ -832,7 +832,7 @@ function redbull_base_default_page_manager_handlers() {
   $handler->conf['display'] = $display;
 
   $export['node_view_panel_context_6'] = $handler;
-  
+
   $handler = new stdClass;
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
@@ -1055,19 +1055,19 @@ function redbull_base_default_page_manager_handlers() {
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
-    
+
   $export['node_view_panel_context'] = $handler;
-  
+
   $handler = new stdClass;
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
-  $handler->name = 'term_view_panel_context';
+  $handler->name = 'term_view_panel_context_2';
   $handler->task = 'term_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = 0;
+  $handler->weight = -10;
   $handler->conf = array(
-    'title' => 'Taxonomy term view',
+    'title' => 'Rødovre taxonomy term view',
     'no_blocks' => FALSE,
     'css_id' => '',
     'css' => '',
@@ -1112,27 +1112,6 @@ function redbull_base_default_page_manager_handlers() {
     $pane->position = 0;
     $display->content['new-1'] = $pane;
     $display->panels['left'][0] = 'new-1';
-    $pane = new stdClass;
-    $pane->pid = 'new-2';
-    $pane->panel = 'left';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'taxonomy_term_view-panel_pane_1';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'context' => array(
-        0 => 'argument_terms_1',
-      ),
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $display->content['new-2'] = $pane;
-    $display->panels['left'][1] = 'new-2';
     $pane = new stdClass;
     $pane->pid = 'new-3';
     $pane->panel = 'left';
@@ -1233,8 +1212,8 @@ function redbull_base_default_page_manager_handlers() {
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
-    
-  $export['term_view_panel_context'] = $handler;
+
+  $export['term_view_panel_context_2'] = $handler;
 
   return $export;
 
@@ -1419,7 +1398,7 @@ function redbull_base_default_page_manager_pages() {
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $pages['front_panel'] = $page;
-  
+
   $page = new stdClass;
   $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
   $page->api_version = 1;
@@ -1549,7 +1528,7 @@ function redbull_base_default_page_manager_pages() {
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $pages['library_list'] = $page;
-  
+
   $page = new stdClass;
   $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
   $page->api_version = 1;
@@ -1707,9 +1686,9 @@ function redbull_base_default_page_manager_pages() {
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
-    
+
   $pages['events_overview'] = $page;
-    
+
   return $pages;
-  
+
 }
