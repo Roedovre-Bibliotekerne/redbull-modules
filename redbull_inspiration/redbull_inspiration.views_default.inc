@@ -95,7 +95,7 @@ function redbull_inspiration_views_default_views() {
     'vid' => array(
       'operator' => 'in',
       'value' => array(
-        '9' => '9',
+        '6' => '6',
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -1002,7 +1002,7 @@ function redbull_inspiration_views_default_views() {
     'vid' => array(
       'operator' => 'in',
       'value' => array(
-        '9' => '9',
+        '6' => '6',
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -1612,7 +1612,7 @@ function redbull_inspiration_views_default_views() {
     'vid' => array(
       'operator' => 'in',
       'value' => array(
-        '9' => '9',
+        '6' => '6',
       ),
       'group' => '0',
       'exposed' => FALSE,

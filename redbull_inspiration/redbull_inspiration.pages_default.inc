@@ -12,7 +12,10 @@ function redbull_inspiration_default_page_manager_pages() {
   $page->admin_title = 'Inspiration';
   $page->admin_description = '';
   $page->path = 'inspiration';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = array(
     'type' => 'normal',
     'title' => 'Inspiration',
