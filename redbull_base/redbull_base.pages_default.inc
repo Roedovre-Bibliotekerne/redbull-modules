@@ -5,18 +5,17 @@
  */
 function redbull_base_default_page_manager_handlers() {
   $export = array();
-
   $handler = new stdClass;
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
-  $handler->name = 'node_view_panel_context_4';
+  $handler->name = 'redbull_node_view_panel_context_blog';
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -6;
+  $handler->weight = -10;
   $handler->conf = array(
     'autogenerate_title' => TRUE,
-    'title' => 'Article/blog node',
+    'title' => 'Rødovre article/blog node',
     'no_blocks' => 0,
     'css_id' => '',
     'css' => '',
@@ -394,266 +393,18 @@ function redbull_base_default_page_manager_handlers() {
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
 
-
-  $export['node_view_panel_context_4'] = $handler;
-
+  $export['redbull_node_view_panel_context_blog'] = $handler;
   $handler = new stdClass;
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
-  $handler->name = 'page_library_list_panel_context';
-  $handler->task = 'page';
-  $handler->subtask = 'library_list';
-  $handler->handler = 'panel_context';
-  $handler->weight = 0;
-  $handler->conf = array(
-    'title' => 'Panel',
-    'no_blocks' => FALSE,
-    'css_id' => '',
-    'css' => '',
-    'contexts' => array(),
-    'relationships' => array(),
-  );
-  $display = new panels_display;
-  $display->layout = 'twocol_left_stacked';
-  $display->layout_settings = array();
-  $display->panel_settings = array(
-    'style_settings' => array(
-      'default' => NULL,
-      'top' => NULL,
-      'left' => NULL,
-      'right' => NULL,
-      'bottom' => NULL,
-    ),
-  );
-  $display->cache = array();
-  $display->title = 'Biblioteker';
-  $display->content = array();
-  $display->panels = array();
-    $pane = new stdClass;
-    $pane->pid = 'new-1';
-    $pane->panel = 'left';
-    $pane->type = 'library_map';
-    $pane->subtype = 'library_map';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $display->content['new-1'] = $pane;
-    $display->panels['left'][0] = 'new-1';
-    $pane = new stdClass;
-    $pane->pid = 'new-2';
-    $pane->panel = 'left';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'library_list-panel_pane_1';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $display->content['new-2'] = $pane;
-    $display->panels['left'][1] = 'new-2';
-    $pane = new stdClass;
-    $pane->pid = 'new-3';
-    $pane->panel = 'right';
-    $pane->type = 'relevant';
-    $pane->subtype = 'relevant_campaigns';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'context' => array(
-        0 => 'empty',
-        1 => 'empty',
-      ),
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $display->content['new-3'] = $pane;
-    $display->panels['right'][0] = 'new-3';
-  $display->hide_title = PANELS_TITLE_NONE;
-  $display->title_pane = '0';
-  $handler->conf['display'] = $display;
-
-  $export['page_library_list_panel_context'] = $handler;
-
-  $handler = new stdClass;
-  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
-  $handler->api_version = 1;
-  $handler->name = 'node_view_panel_context_3';
+  $handler->name = 'redbull_node_view_panel_context_event';
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = 2;
+  $handler->weight = -10;
   $handler->conf = array(
     'autogenerate_title' => TRUE,
-    'title' => 'Page node',
-    'no_blocks' => 0,
-    'css_id' => '',
-    'css' => '',
-    'css_cache_file' => '',
-    'contexts' => array(),
-    'relationships' => array(
-      0 => array(
-        'context' => 'argument_nid_1',
-        'name' => 'related_library',
-        'id' => 2,
-        'identifier' => 'Library node',
-        'keyword' => 'related_library',
-      ),
-    ),
-    'access' => array(
-      'plugins' => array(
-        0 => array(
-          'name' => 'perm',
-          'settings' => array(
-            'perm' => 'access content',
-          ),
-          'context' => 'logged-in-user',
-        ),
-        1 => array(
-          'name' => 'node_type',
-          'settings' => array(
-            'type' => array(
-              'page' => 'page',
-            ),
-          ),
-          'context' => 'argument_nid_1',
-        ),
-      ),
-      'logic' => 'and',
-    ),
-  );
-  $display = new panels_display;
-  $display->layout = 'threecol_33_34_33_stacked';
-  $display->layout_settings = array();
-  $display->panel_settings = array(
-    'style_settings' => array(
-      'default' => NULL,
-      'top' => NULL,
-      'left' => NULL,
-      'middle' => NULL,
-      'right' => NULL,
-      'bottom' => NULL,
-    ),
-  );
-  $display->cache = array();
-  $display->title = '';
-  $display->content = array();
-  $display->panels = array();
-    $pane = new stdClass;
-    $pane->pid = 'new-1';
-    $pane->panel = 'left';
-    $pane->type = 'node_content';
-    $pane->subtype = 'node_content';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'links' => 0,
-      'page' => 1,
-      'no_extras' => 0,
-      'override_title' => 0,
-      'override_title_text' => '',
-      'teaser' => 0,
-      'identifier' => '',
-      'link' => 0,
-      'leave_node_title' => 0,
-      'context' => 'argument_nid_1',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $display->content['new-1'] = $pane;
-    $display->panels['left'][0] = 'new-1';
-    $pane = new stdClass;
-    $pane->pid = 'new-2';
-    $pane->panel = 'middle';
-    $pane->type = 'library_portal';
-    $pane->subtype = 'library_portal';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'default_menu' => 'menu-organisation',
-      'context' => 'relationship_related_library_2',
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $display->content['new-2'] = $pane;
-    $display->panels['middle'][0] = 'new-2';
-    $pane = new stdClass;
-    $pane->pid = 'new-3';
-    $pane->panel = 'right';
-    $pane->type = 'relevant';
-    $pane->subtype = 'relevant_campaigns';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'context' => array(
-        0 => 'argument_nid_1',
-        1 => 'relationship_related_library_2',
-      ),
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $display->content['new-3'] = $pane;
-    $display->panels['right'][0] = 'new-3';
-  $display->hide_title = PANELS_TITLE_NONE;
-  $display->title_pane = '0';
-  $handler->conf['display'] = $display;
-
-  $export['node_view_panel_context_3'] = $handler;
-
-  $handler = new stdClass;
-  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
-  $handler->api_version = 1;
-  $handler->name = 'node_view_panel_context_6';
-  $handler->task = 'node_view';
-  $handler->subtask = '';
-  $handler->handler = 'panel_context';
-  $handler->weight = -7;
-  $handler->conf = array(
-    'autogenerate_title' => TRUE,
-    'title' => 'Event node',
+    'title' => 'Rødovre event node',
     'no_blocks' => 0,
     'css_id' => '',
     'css' => '',
@@ -831,19 +582,18 @@ function redbull_base_default_page_manager_handlers() {
   $display->title_pane = 'new-1';
   $handler->conf['display'] = $display;
 
-  $export['node_view_panel_context_6'] = $handler;
-
+  $export['redbull_node_view_panel_context_event'] = $handler;
   $handler = new stdClass;
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
-  $handler->name = 'node_view_panel_context';
+  $handler->name = 'redbull_node_view_panel_context_library';
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = 0;
+  $handler->weight = -1;
   $handler->conf = array(
     'autogenerate_title' => TRUE,
-    'title' => 'Normal library',
+    'title' => 'Rødovre normal library',
     'no_blocks' => 0,
     'css_id' => '',
     'css' => '',
@@ -1056,23 +806,53 @@ function redbull_base_default_page_manager_handlers() {
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
 
-  $export['node_view_panel_context'] = $handler;
-
+  $export['redbull_node_view_panel_context_library'] = $handler;
   $handler = new stdClass;
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
-  $handler->name = 'term_view_panel_context_2';
-  $handler->task = 'term_view';
+  $handler->name = 'redbull_node_view_panel_context_page';
+  $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -10;
+  $handler->weight = 1;
   $handler->conf = array(
-    'title' => 'Rødovre taxonomy term view',
-    'no_blocks' => FALSE,
+    'autogenerate_title' => TRUE,
+    'title' => 'Rødovre page node',
+    'no_blocks' => 0,
     'css_id' => '',
     'css' => '',
+    'css_cache_file' => '',
     'contexts' => array(),
-    'relationships' => array(),
+    'relationships' => array(
+      0 => array(
+        'context' => 'argument_nid_1',
+        'name' => 'related_library',
+        'id' => 2,
+        'identifier' => 'Library node',
+        'keyword' => 'related_library',
+      ),
+    ),
+    'access' => array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'perm',
+          'settings' => array(
+            'perm' => 'access content',
+          ),
+          'context' => 'logged-in-user',
+        ),
+        1 => array(
+          'name' => 'node_type',
+          'settings' => array(
+            'type' => array(
+              'page' => 'page',
+            ),
+          ),
+          'context' => 'argument_nid_1',
+        ),
+      ),
+      'logic' => 'and',
+    ),
   );
   $display = new panels_display;
   $display->layout = 'threecol_33_34_33_stacked';
@@ -1094,14 +874,21 @@ function redbull_base_default_page_manager_handlers() {
     $pane = new stdClass;
     $pane->pid = 'new-1';
     $pane->panel = 'left';
-    $pane->type = 'term_description';
-    $pane->subtype = 'term_description';
+    $pane->type = 'node_content';
+    $pane->subtype = 'node_content';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'context' => 'argument_terms_1',
+      'links' => 0,
+      'page' => 1,
+      'no_extras' => 0,
       'override_title' => 0,
       'override_title_text' => '',
+      'teaser' => 0,
+      'identifier' => '',
+      'link' => 0,
+      'leave_node_title' => 0,
+      'context' => 'argument_nid_1',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -1113,15 +900,99 @@ function redbull_base_default_page_manager_handlers() {
     $display->content['new-1'] = $pane;
     $display->panels['left'][0] = 'new-1';
     $pane = new stdClass;
+    $pane->pid = 'new-2';
+    $pane->panel = 'middle';
+    $pane->type = 'library_portal';
+    $pane->subtype = 'library_portal';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'default_menu' => 'menu-organisation',
+      'context' => 'relationship_related_library_2',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $display->content['new-2'] = $pane;
+    $display->panels['middle'][0] = 'new-2';
+    $pane = new stdClass;
     $pane->pid = 'new-3';
-    $pane->panel = 'left';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'roedovre_taxonomy_term_view-panel_pane_1';
+    $pane->panel = 'right';
+    $pane->type = 'relevant';
+    $pane->subtype = 'relevant_campaigns';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
       'context' => array(
-        0 => 'argument_terms_1',
+        0 => 'argument_nid_1',
+        1 => 'relationship_related_library_2',
+      ),
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $display->content['new-3'] = $pane;
+    $display->panels['right'][0] = 'new-3';
+  $display->hide_title = PANELS_TITLE_NONE;
+  $display->title_pane = '0';
+  $handler->conf['display'] = $display;
+
+  $export['redbull_node_view_panel_context_page'] = $handler;
+  $handler = new stdClass;
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'redbull_page_events_overview_panel_context';
+  $handler->task = 'page';
+  $handler->subtask = 'events_overview';
+  $handler->handler = 'panel_context';
+  $handler->weight = -1;
+  $handler->conf = array(
+    'title' => 'Rødovre Panel',
+    'no_blocks' => FALSE,
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+  );
+  $display = new panels_display;
+  $display->layout = 'threecol_33_34_33_stacked';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'top' => NULL,
+      'left' => NULL,
+      'middle' => NULL,
+      'right' => NULL,
+      'bottom' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = 'Arrangementer';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass;
+    $pane->pid = 'new-1';
+    $pane->panel = 'left';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'event_list-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'context' => array(
+        0 => 'argument_term_1',
       ),
     );
     $pane->cache = array();
@@ -1130,63 +1001,33 @@ function redbull_base_default_page_manager_handlers() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 2;
-    $display->content['new-3'] = $pane;
-    $display->panels['left'][2] = 'new-3';
+    $pane->position = 0;
+    $display->content['new-1'] = $pane;
+    $display->panels['left'][0] = 'new-1';
     $pane = new stdClass;
-    $pane->pid = 'new-4';
+    $pane->pid = 'new-2';
     $pane->panel = 'middle';
-    $pane->type = 'term_list';
-    $pane->subtype = 'term_list';
+    $pane->type = 'categories';
+    $pane->subtype = 'categories';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'title' => NULL,
-      'type' => 'related',
-      'list_type' => 'ol',
-      'context' => 'argument_terms_1',
+      'vocabulary' => '4',
       'override_title' => 0,
       'override_title_text' => '',
+      'context' => 'argument_term_1',
     );
     $pane->cache = array();
     $pane->style = array(
-      'style' => 'ding_box',
       'settings' => NULL,
     );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'gray-box',
-    );
+    $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
-    $display->content['new-4'] = $pane;
-    $display->panels['middle'][0] = 'new-4';
+    $display->content['new-2'] = $pane;
+    $display->panels['middle'][0] = 'new-2';
     $pane = new stdClass;
-    $pane->pid = 'new-5';
-    $pane->panel = 'middle';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'blog_category_list-panel_pane_1';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'style' => 'ding_box',
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'gray-box',
-    );
-    $pane->extras = array();
-    $pane->position = 1;
-    $display->content['new-5'] = $pane;
-    $display->panels['middle'][1] = 'new-5';
-    $pane = new stdClass;
-    $pane->pid = 'new-6';
+    $pane->pid = 'new-3';
     $pane->panel = 'right';
     $pane->type = 'relevant';
     $pane->subtype = 'relevant_campaigns';
@@ -1207,63 +1048,23 @@ function redbull_base_default_page_manager_handlers() {
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
-    $display->content['new-6'] = $pane;
-    $display->panels['right'][0] = 'new-6';
-  $display->hide_title = PANELS_TITLE_NONE;
+    $display->content['new-3'] = $pane;
+    $display->panels['right'][0] = 'new-3';
+  $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
 
-  $export['term_view_panel_context_2'] = $handler;
-
-  return $export;
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/**
- * Implementation of hook_default_page_manager_pages().
- */
-function redbull_base_default_page_manager_pages() {
-  $page = new stdClass;
-  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
-  $page->api_version = 1;
-  $page->name = 'front_panel';
-  $page->task = 'page';
-  $page->admin_title = 'Main front page panel';
-  $page->admin_description = '';
-  $page->path = 'front_panel';
-  $page->access = array(
-    'type' => 'none',
-    'settings' => NULL,
-  );
-  $page->menu = FALSE;
-  $page->arguments = array();
-  $page->conf = array();
-  $page->default_handlers = array();
+  $export['redbull_page_events_overview_panel_context'] = $handler;
   $handler = new stdClass;
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
-  $handler->name = 'page_front_panel_panel_context';
+  $handler->name = 'redbull_page_front_panel_panel_context';
   $handler->task = 'page';
   $handler->subtask = 'front_panel';
   $handler->handler = 'panel_context';
-  $handler->weight = 0;
+  $handler->weight = -1;
   $handler->conf = array(
-    'title' => 'Panel',
+    'title' => 'Rødovre panel',
     'no_blocks' => 0,
     'css_id' => '',
     'css' => '',
@@ -1396,47 +1197,18 @@ function redbull_base_default_page_manager_pages() {
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
-  $page->default_handlers[$handler->name] = $handler;
-  $pages['front_panel'] = $page;
 
-  $page = new stdClass;
-  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
-  $page->api_version = 1;
-  $page->name = 'library_list';
-  $page->task = 'page';
-  $page->admin_title = 'Library overview list';
-  $page->admin_description = 'List over libraries with library map on top.';
-  $page->path = 'biblioteker';
-  $page->access = array(
-    'logic' => 'and',
-    'type' => 'none',
-    'settings' => NULL,
-  );
-  $page->menu = array(
-    'type' => 'normal',
-    'title' => 'Biblioteker',
-    'name' => 'primary-links',
-    'weight' => '0',
-    'parent' => array(
-      'type' => 'none',
-      'title' => '',
-      'name' => 'navigation',
-      'weight' => '0',
-    ),
-  );
-  $page->arguments = array();
-  $page->conf = array();
-  $page->default_handlers = array();
+  $export['redbull_page_front_panel_panel_context'] = $handler;
   $handler = new stdClass;
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
-  $handler->name = 'page_library_list_panel_context';
+  $handler->name = 'redbull_page_library_list_panel_context';
   $handler->task = 'page';
   $handler->subtask = 'library_list';
   $handler->handler = 'panel_context';
-  $handler->weight = 0;
+  $handler->weight = -10;
   $handler->conf = array(
-    'title' => 'Panel',
+    'title' => 'Rødovre Panel',
     'no_blocks' => FALSE,
     'css_id' => '',
     'css' => '',
@@ -1526,72 +1298,18 @@ function redbull_base_default_page_manager_pages() {
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
-  $page->default_handlers[$handler->name] = $handler;
-  $pages['library_list'] = $page;
 
-  $page = new stdClass;
-  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
-  $page->api_version = 1;
-  $page->name = 'events_overview';
-  $page->task = 'page';
-  $page->admin_title = 'Events overview page';
-  $page->admin_description = 'Provides a list of all coming events – with filters and stuff like that.';
-  $page->path = 'arrangementer/!tid';
-  $page->access = array(
-    'plugins' => array(
-      0 => array(
-        'name' => 'perm',
-        'settings' => array(
-          'perm' => 'access content',
-        ),
-        'context' => 'logged-in-user',
-      ),
-    ),
-    'logic' => 'and',
-    'type' => 'none',
-    'settings' => NULL,
-  );
-  $page->menu = array(
-    'type' => 'normal',
-    'title' => 'Arrangementer',
-    'name' => 'primary-links',
-    'weight' => '0',
-    'parent' => array(
-      'type' => 'none',
-      'title' => '',
-      'name' => 'navigation',
-      'weight' => '0',
-    ),
-  );
-  $page->arguments = array(
-    'tid' => array(
-      'id' => 1,
-      'identifier' => 'Event category',
-      'name' => 'term',
-      'settings' => array(
-        'input_form' => 'tid',
-        'vids' => array(
-          4 => 4,
-          5 => 0,
-          1 => 0,
-          2 => 0,
-        ),
-        'breadcrumb' => 1,
-      ),
-    ),
-  );
-  $page->conf = array();
-  $page->default_handlers = array();
+  $export['redbull_page_library_list_panel_context'] = $handler;
   $handler = new stdClass;
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
-  $handler->name = 'page_events_overview_panel_context';
-  $handler->task = 'page';
-  $handler->subtask = 'events_overview';
+  $handler->name = 'redbull_term_view_panel_context';
+  $handler->task = 'term_view';
+  $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = 0;
+  $handler->weight = -11;
   $handler->conf = array(
-    'title' => 'Panel',
+    'title' => 'Rødovre taxonomy term view',
     'no_blocks' => FALSE,
     'css_id' => '',
     'css' => '',
@@ -1612,20 +1330,20 @@ function redbull_base_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = 'Arrangementer';
+  $display->title = '';
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass;
     $pane->pid = 'new-1';
     $pane->panel = 'left';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'event_list-panel_pane_1';
+    $pane->type = 'term_description';
+    $pane->subtype = 'term_description';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'context' => array(
-        0 => 'argument_term_1',
-      ),
+      'context' => 'argument_terms_1',
+      'override_title' => 0,
+      'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -1638,16 +1356,15 @@ function redbull_base_default_page_manager_pages() {
     $display->panels['left'][0] = 'new-1';
     $pane = new stdClass;
     $pane->pid = 'new-2';
-    $pane->panel = 'middle';
-    $pane->type = 'categories';
-    $pane->subtype = 'categories';
+    $pane->panel = 'left';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'roedovre_taxonomy_term_view-panel_pane_1';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'vocabulary' => '4',
-      'override_title' => 0,
-      'override_title_text' => '',
-      'context' => 'argument_term_1',
+      'context' => array(
+        0 => 'argument_terms_1',
+      ),
     );
     $pane->cache = array();
     $pane->style = array(
@@ -1655,11 +1372,63 @@ function redbull_base_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 2;
     $display->content['new-2'] = $pane;
-    $display->panels['middle'][0] = 'new-2';
+    $display->panels['left'][1] = 'new-2';
     $pane = new stdClass;
     $pane->pid = 'new-3';
+    $pane->panel = 'middle';
+    $pane->type = 'term_list';
+    $pane->subtype = 'term_list';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'title' => NULL,
+      'type' => 'related',
+      'list_type' => 'ol',
+      'context' => 'argument_terms_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'ding_box',
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'gray-box',
+    );
+    $pane->extras = array();
+    $pane->position = 0;
+    $display->content['new-3'] = $pane;
+    $display->panels['middle'][0] = 'new-3';
+    $pane = new stdClass;
+    $pane->pid = 'new-4';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'blog_category_list-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'ding_box',
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'gray-box',
+    );
+    $pane->extras = array();
+    $pane->position = 1;
+    $display->content['new-4'] = $pane;
+    $display->panels['middle'][1] = 'new-4';
+    $pane = new stdClass;
+    $pane->pid = 'new-5';
     $pane->panel = 'right';
     $pane->type = 'relevant';
     $pane->subtype = 'relevant_campaigns';
@@ -1680,15 +1449,12 @@ function redbull_base_default_page_manager_pages() {
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
-    $display->content['new-3'] = $pane;
-    $display->panels['right'][0] = 'new-3';
-  $display->hide_title = PANELS_TITLE_FIXED;
+    $display->content['new-5'] = $pane;
+    $display->panels['right'][0] = 'new-5';
+  $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
-  $page->default_handlers[$handler->name] = $handler;
 
-  $pages['events_overview'] = $page;
-
-  return $pages;
-
+  $export['redbull_term_view_panel_context'] = $handler;
+  return $export;
 }

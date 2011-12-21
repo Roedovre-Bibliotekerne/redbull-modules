@@ -10,3 +10,17 @@ function redbull_base_theme() {
     ),
   );
 }
+
+/**
+ * Implementation of hook_imagecache_default_presets_alter().
+ */
+function redbull_base_imagecache_default_presets_alter(&$presets) {
+  if (!empty($presets['ting_search_carousel'])) {
+    $presets['ting_search_carousel']['actions'][0]['actions'] = 'imagecache_scale_and_crop';
+    $presets['ting_search_carousel']['actions'][0]['data']['width'] = '100';
+    $presets['ting_search_carousel']['actions'][0]['data']['height'] = '160';
+
+    $presets['ting_search_carousel']['actions'][1]['data']['exact']['width'] = '100';
+    $presets['ting_search_carousel']['actions'][1]['data']['exact']['height'] = '160';
+  }
+}
