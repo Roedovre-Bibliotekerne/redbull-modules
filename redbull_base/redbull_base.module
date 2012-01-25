@@ -696,3 +696,56 @@ function redbull_base_rules_defaults() {
     ),
   );
 }
+
+/**
+ * Implementation of hook_preprocess_ting_object().
+ *
+ * Rearranges object details.
+ */
+function redbull_base_preprocess_ting_object(&$vars) {
+  /*
+    type: bog
+    sprog: dansk
+    emneord: øl, hånd
+    opstilling
+    beskrivelse: indhold: ølsma
+    isbn:
+    version: 2udga
+    omfang: 240
+    udgiver: kbh. polit
+  */
+  // These are the ones we want first;
+  $primary = array_flip(array(
+    t('Type'),
+    t('Language'),
+    t('Subjects'),
+    t('Classiciation'),
+    t('Description'),
+    t('ISBN'),
+    t('Edition'),
+    t('Publisher'),
+    t('Extent'),
+  ));
+
+  $ting_details = $vars['ting_details'];
+  // Collect listing of all.
+  $all_items = array_merge($ting_details[0]['data'], $ting_details[1]['data'], $ting_details[2]['data']);
+
+  // Filter out the primary for the first.
+  // Create an array where the keys are in the primary order.
+  $order = array_intersect_key($primary, $all_items);
+  // And another one where the key has the right value (order is from
+  // $all_items)
+  $common = array_intersect_key($all_items, $order);
+  // array_merge uses the order of the first, but last value.
+  $ting_details[0]['data'] = array_merge($order, $common);
+
+  // And add the rest to the second.
+  /* $ting_details[1]['data'] = array_diff_key($all_items, $primary); */
+  // Actually, unset it. Might add it in later.
+  unset($ting_details[1]);
+  // Delete the third group.
+  unset($ting_details[2]);
+
+  $vars['ting_details'] = $ting_details;
+}
