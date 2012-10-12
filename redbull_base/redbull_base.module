@@ -739,11 +739,8 @@ function redbull_base_preprocess_ting_object(&$vars) {
   $common = array_intersect_key($all_items, $order);
   // array_merge uses the order of the first, but last value.
   $ting_details[0]['data'] = array_merge($order, $common);
-
   // And add the rest to the second.
-  /* $ting_details[1]['data'] = array_diff_key($all_items, $primary); */
-  // Actually, unset it. Might add it in later.
-  unset($ting_details[1]);
+   $ting_details[1]['data'] = array_diff_key($all_items, $primary); 
   // Delete the third group.
   unset($ting_details[2]);
 
